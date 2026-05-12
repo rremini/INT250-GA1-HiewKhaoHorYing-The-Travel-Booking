@@ -32,7 +32,7 @@ const processSteps = [
 
 <template>
   <div class="font-inter">
-    <section class="bg-linear-to-b from-blue-50 to-blue-50 py-20 px-4 text-center">
+    <section class="py-20 px-4 text-center" style="background-color: #f6fbff;">
       <h1 class="text-2xl font-bold text-gray-900 mb-6">About Skyline Travel</h1>
       <p class="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed">
         We're a full-service travel agency handling airline transportation and hotel reservations from
