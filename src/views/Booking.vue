@@ -43,6 +43,7 @@ const stepItems: StepItem[] = [
     </div>
     <div class="max-w-3xl w-full mx-auto px-10">
       <RequestForm />
+      <SelectForm />
     </div>
   </div>
 </template>
