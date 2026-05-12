@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import Stepper, { StepItem } from "@/components/pages/booking/Stepper.vue";
+import PaymentForm from "@/components/pages/booking/steps-content/PaymentForm.vue";
 import RequestForm from "@/components/pages/booking/steps-content/RequestForm.vue";
-import { useStepperStore } from "@/stores/stepperStore";
-
-const stepperStore = useStepperStore();
 
 const stepItems: StepItem[] = [
   {
@@ -43,6 +41,7 @@ const stepItems: StepItem[] = [
     </div>
     <div class="max-w-3xl w-full mx-auto px-10">
       <RequestForm />
+      <PaymentForm />
     </div>
   </div>
 </template>
