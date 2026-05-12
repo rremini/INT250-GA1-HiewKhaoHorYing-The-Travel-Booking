@@ -1,33 +1,3 @@
-<script setup>
-import Navbar from '@/components/shared/Navbar.vue'
-import Footer from '@/components/shared/Footer.vue'
-import { ref } from "vue";
-import { Mail, Phone, MapPin, Clock } from "lucide-vue-next";
-
-const form = ref({
-  name: "",
-  email: "",
-  subject: "",
-  message: "",
-});
-
-const contacts = ref([
-  { icon: Mail, label: "Email", value: "hello@skyline.travel" },
-  { icon: Phone, label: "Phone", value: "+1 (555) 010-2026" },
-  { icon: MapPin, label: "Office", value: "1 Cloud Ave, Suite 200" },
-  { icon: Clock, label: "Hours", value: "Mon–Fri, 9am–6pm" },
-]);
-
-const submit = () => {
-  if (!form.value.name || !form.value.email || !form.value.message) {
-    alert("Please complete the required fields.");
-    return;
-  }
-  alert("Thanks! We'll be in touch within 24 hours.");
-  form.value = { name: "", email: "", subject: "", message: "" };
-};
-</script>
-
 <template>
   <Navbar />
   <div class="font-inter">
@@ -99,14 +69,14 @@ const submit = () => {
         <div
           v-for="contact in contacts"
           :key="contact.label"
-          class="flex items-start gap-3 rounded-xl border border-gray-300 bg-white p-4"
+          class="flex items-start gap-3 rounded-xl  border  border-gray-300  bg-white p-4"
         >
           <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-sky-100 text-sky-600">
             <component :is="contact.icon" class="h-5 w-5" />
           </div>
           <div>
             <p class="text-sm text-slate-500">{{ contact.label }}</p>
-            <p class="text-base text-slate-900">{{ contact.value }}</p>
+            <p class="text-slate-900">{{ contact.value }}</p>
           </div>
         </div>
       </div>
@@ -114,6 +84,37 @@ const submit = () => {
   </div>
   <Footer />
 </template>
+
+<script setup>
+import { ref } from "vue";
+import { Mail, Phone, MapPin, Clock } from "lucide-vue-next";
+import { toast } from "sonner";
+import Navbar from '../shared/Navbar.vue';
+import Footer from '../shared/Footer.vue';
+
+const form = ref({
+  name: "",
+  email: "",
+  subject: "",
+  message: "",
+});
+
+const contacts = ref([
+  { icon: Mail, label: "Email", value: "hello@skyline.travel" },
+  { icon: Phone, label: "Phone", value: "+1 (555) 010-2026" },
+  { icon: MapPin, label: "Office", value: "1 Cloud Ave, Suite 200" },
+  { icon: Clock, label: "Hours", value: "Mon–Fri, 9am–6pm" },
+]);
+
+const submit = () => {
+  if (!form.value.name || !form.value.email || !form.value.message) {
+    toast.error("Please complete the required fields.");
+    return;
+  }
+  toast.success("Thanks! We'll be in touch within 24 hours.");
+  form.value = { name: "", email: "", subject: "", message: "" };
+};
+</script>
 
 <style scoped>
 /* Optional: Add any component-specific styles here */
