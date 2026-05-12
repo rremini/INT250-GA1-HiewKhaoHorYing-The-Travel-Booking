@@ -1,5 +1,41 @@
 <template>
   <Navbar />
+
+  <!-- Toast Noti-->
+  <div class="fixed top-4 right-4 z-50 space-y-2">
+    <div
+      v-for="notification in toasts"
+      :key="notification.id"
+      :class="[
+        'px-4 py-3 rounded-lg text-white font-medium flex items-center gap-2 shadow-lg',
+        'animate-in fade-in slide-in-from-right-full duration-300',
+        notification.type === 'success'
+          ? 'bg-green-500'
+          : 'bg-red-500'
+      ]"
+    >
+      <svg
+        v-if="notification.type === 'success'"
+        class="w-5 h-5 shrink-0"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+      </svg>
+      <svg
+        v-else
+        class="w-5 h-5 shrink-0"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+      {{ notification.message }}
+    </div>
+  </div>
+
   <div class="font-inter">
     <section class="bg-gradient-to-br from-sky-50 to-white">
       <div class="mx-auto max-w-7xl px-4 py-14 text-center">
@@ -88,7 +124,6 @@
 <script setup>
 import { ref } from "vue";
 import { Mail, Phone, MapPin, Clock } from "lucide-vue-next";
-import { toast } from "sonner";
 import Navbar from '../shared/Navbar.vue';
 import Footer from '../shared/Footer.vue';
 
@@ -99,6 +134,18 @@ const form = ref({
   message: "",
 });
 
+const toasts = ref([]);
+let toastId = 0;
+
+const showToast = (message, type = 'success') => {
+  const id = toastId++;
+  toasts.value.push({ id, message, type });
+
+  setTimeout(() => {
+    toasts.value = toasts.value.filter(t => t.id !== id);
+  }, 3000);
+};
+
 const contacts = ref([
   { icon: Mail, label: "Email", value: "hello@skyline.travel" },
   { icon: Phone, label: "Phone", value: "+1 (555) 010-2026" },
@@ -108,14 +155,11 @@ const contacts = ref([
 
 const submit = () => {
   if (!form.value.name || !form.value.email || !form.value.message) {
-    toast.error("Please complete the required fields.");
+    showToast("Please complete the required fields.", 'error');
     return;
   }
-  toast.success("Thanks! We'll be in touch within 24 hours.");
+  showToast("Thanks! We'll be in touch within 24 hours.", 'success');
   form.value = { name: "", email: "", subject: "", message: "" };
 };
 </script>
 
-<style scoped>
-/* Optional: Add any component-specific styles here */
-</style>
