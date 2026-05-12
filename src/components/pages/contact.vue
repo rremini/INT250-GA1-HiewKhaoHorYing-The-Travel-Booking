@@ -1,3 +1,45 @@
+<script setup>
+import { ref } from "vue";
+import { Mail, Phone, MapPin, Clock } from "lucide-vue-next";
+import Navbar from '../shared/Navbar.vue';
+import Footer from '../shared/Footer.vue';
+
+const form = ref({
+  name: "",
+  email: "",
+  subject: "",
+  message: "",
+});
+
+const toasts = ref([]);
+let toastId = 0;
+
+const showToast = (message, type = 'success') => {
+  const id = toastId++;
+  toasts.value.push({ id, message, type });
+
+  setTimeout(() => {
+    toasts.value = toasts.value.filter(t => t.id !== id);
+  }, 3000);
+};
+
+const contacts = ref([
+  { icon: Mail, label: "Email", value: "hello@skyline.travel" },
+  { icon: Phone, label: "Phone", value: "+1 (555) 010-2026" },
+  { icon: MapPin, label: "Office", value: "1 Cloud Ave, Suite 200" },
+  { icon: Clock, label: "Hours", value: "Mon–Fri, 9am–6pm" },
+]);
+
+const submit = () => {
+  if (!form.value.name || !form.value.email || !form.value.message) {
+    showToast("Please complete the required fields.", 'error');
+    return;
+  }
+  showToast("Thanks! We'll be in touch within 24 hours.", 'success');
+  form.value = { name: "", email: "", subject: "", message: "" };
+};
+</script>
+
 <template>
   <div class="dark:bg-slate-900 dark:text-white transition-colors">
     <Navbar />
@@ -122,46 +164,3 @@
     <Footer />
   </div>
 </template>
-
-<script setup>
-import { ref } from "vue";
-import { Mail, Phone, MapPin, Clock } from "lucide-vue-next";
-import Navbar from '../shared/Navbar.vue';
-import Footer from '../shared/Footer.vue';
-
-const form = ref({
-  name: "",
-  email: "",
-  subject: "",
-  message: "",
-});
-
-const toasts = ref([]);
-let toastId = 0;
-
-const showToast = (message, type = 'success') => {
-  const id = toastId++;
-  toasts.value.push({ id, message, type });
-
-  setTimeout(() => {
-    toasts.value = toasts.value.filter(t => t.id !== id);
-  }, 3000);
-};
-
-const contacts = ref([
-  { icon: Mail, label: "Email", value: "hello@skyline.travel" },
-  { icon: Phone, label: "Phone", value: "+1 (555) 010-2026" },
-  { icon: MapPin, label: "Office", value: "1 Cloud Ave, Suite 200" },
-  { icon: Clock, label: "Hours", value: "Mon–Fri, 9am–6pm" },
-]);
-
-const submit = () => {
-  if (!form.value.name || !form.value.email || !form.value.message) {
-    showToast("Please complete the required fields.", 'error');
-    return;
-  }
-  showToast("Thanks! We'll be in touch within 24 hours.", 'success');
-  form.value = { name: "", email: "", subject: "", message: "" };
-};
-</script>
-

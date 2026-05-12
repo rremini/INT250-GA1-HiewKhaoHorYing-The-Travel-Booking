@@ -1,7 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import About from '../components/pages/About.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
+  
   routes: [
     {
       path: '/',
@@ -18,6 +20,11 @@ const router = createRouter({
       name: 'News',
       component: () => import('../components/pages/news.vue'),
     },
+    {
+      path: '/about',
+      name: 'About',
+       component: () => import('../components/pages/about.vue'),
+    }
   ],
 })
 

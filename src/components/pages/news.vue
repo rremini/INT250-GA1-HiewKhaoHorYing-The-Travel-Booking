@@ -1,3 +1,66 @@
+<script setup>
+import { Calendar } from "lucide-vue-next";
+import Navbar from "../shared/Navbar.vue"
+import Footer from "../shared/Footer.vue"
+const articles = [
+  {
+    title: "Top 10 Spring destinations for 2026",
+    category: "Travel Guide",
+    date: "May 02, 2026",
+    excerpt:
+      "From Lisbon to Lake Como, here are the destinations our agents are recommending this spring.",
+    image:
+      "https://images.unsplash.com/photo-1473625247510-8ceb1760943f?w=1000&q=80",
+  },
+  {
+    title: "How our 24-hour confirmation window works",
+    category: "Policy",
+    date: "April 21, 2026",
+    excerpt:
+      "Understand the timeline between request submission, selection, and credit card confirmation.",
+    image:
+      "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1000&q=80",
+  },
+  {
+    title: "New partner hotels in Southeast Asia",
+    category: "Announcement",
+    date: "April 10, 2026",
+    excerpt:
+      "We've added 40 new partner hotels across Thailand, Vietnam, and Indonesia.",
+    image:
+      "https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1000&q=80",
+  },
+  {
+    title: "Tips for stress-free airport travel",
+    category: "Travel Tips",
+    date: "March 28, 2026",
+    excerpt:
+      "Practical advice from our travel agents on navigating busy international airports.",
+    image:
+      "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1000&q=80",
+  },
+  {
+    title: "Best beaches to visit this summer",
+    category: "Destination",
+    date: "March 15, 2026",
+    excerpt:
+      "Explore breathtaking beaches and hidden gems for your next tropical vacation.",
+    image:
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1000&q=80",
+  },
+  {
+    title: "Travel safety tips for international trips",
+    category: "Safety",
+    date: "March 02, 2026",
+    excerpt:
+      "Essential safety advice to help travelers stay secure during overseas journeys.",
+    image:
+      "https://images.unsplash.com/photo-1527631746610-bca00a040d60?w=1000&q=80",
+  },
+];
+</script>
+
+
 <template>
    <Navbar />
   <div class="min-h-screen bg-slate-50">
@@ -77,69 +140,7 @@
         </article>
       </div>
     </section>
- <Footer/>
+ <Footer />
   </div>
 
 </template>
- 
-<script setup>
-import { Calendar } from "lucide-vue-next";
-import Navbar from "../shared/Navbar.vue"
-import Footer from "../shared/Footer.vue"
-const articles = [
-  {
-    title: "Top 10 Spring destinations for 2026",
-    category: "Travel Guide",
-    date: "May 02, 2026",
-    excerpt:
-      "From Lisbon to Lake Como, here are the destinations our agents are recommending this spring.",
-    image:
-      "https://images.unsplash.com/photo-1473625247510-8ceb1760943f?w=1000&q=80",
-  },
-  {
-    title: "How our 24-hour confirmation window works",
-    category: "Policy",
-    date: "April 21, 2026",
-    excerpt:
-      "Understand the timeline between request submission, selection, and credit card confirmation.",
-    image:
-      "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1000&q=80",
-  },
-  {
-    title: "New partner hotels in Southeast Asia",
-    category: "Announcement",
-    date: "April 10, 2026",
-    excerpt:
-      "We've added 40 new partner hotels across Thailand, Vietnam, and Indonesia.",
-    image:
-      "https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1000&q=80",
-  },
-  {
-    title: "Tips for stress-free airport travel",
-    category: "Travel Tips",
-    date: "March 28, 2026",
-    excerpt:
-      "Practical advice from our travel agents on navigating busy international airports.",
-    image:
-      "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1000&q=80",
-  },
-  {
-    title: "Best beaches to visit this summer",
-    category: "Destination",
-    date: "March 15, 2026",
-    excerpt:
-      "Explore breathtaking beaches and hidden gems for your next tropical vacation.",
-    image:
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1000&q=80",
-  },
-  {
-    title: "Travel safety tips for international trips",
-    category: "Safety",
-    date: "March 02, 2026",
-    excerpt:
-      "Essential safety advice to help travelers stay secure during overseas journeys.",
-    image:
-      "https://images.unsplash.com/photo-1527631746610-bca00a040d60?w=1000&q=80",
-  },
-];
-</script>
