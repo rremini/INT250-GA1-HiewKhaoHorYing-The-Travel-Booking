@@ -31,7 +31,7 @@ const toggleMobileMenu = () => {
 </script>
 
 <template>
-    <nav class="bg-white border-b border-gray-100">
+    <nav class="fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-blur-md border-b border-gray-100/50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
 
@@ -72,15 +72,8 @@ const toggleMobileMenu = () => {
 
         <div v-show="isMobileMenuOpen" class="fixed inset-0 z-50 bg-white md:hidden flex flex-col">
             <div class="flex justify-between items-center h-20 px-4 sm:px-6 border-b border-gray-100">
-                <div class="flex items-center gap-3">
-                    <div class="bg-[#0085db] text-white p-2 rounded-xl flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                            stroke="currentColor" class="w-6 h-6 transform -rotate-45">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
-                        </svg>
-                    </div>
-                    <span class="text-xl font-semibold text-slate-800">{{ brandName }}</span>
+                <div class="flex items-center cursor-pointer">
+                    <img :src="logoSrc" :alt="brandName" class="h-8 w-auto object-contain" />
                 </div>
 
                 <button @click="toggleMobileMenu"
