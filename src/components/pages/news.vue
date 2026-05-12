@@ -1,30 +1,37 @@
 <template>
-  <div class="min-h-screen bg-slate-50">
-
+  <div
+    class="min-h-screen bg-slate-50 text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-white"
+  >
     <!-- News Section -->
-    <section class="mx-auto max-w-7xl px-4 py-16">
-      
-      <!-- Section Header -->
-    
-        
-          <h2 class="flex items-center justify-center text-3xl font-bold text-slate-900 mb-3">
-            News & Activity
-          </h2>
-          <p class="flex items-center justify-center mb-7 text-slate-600">
-            Travel guides, policy updates, and stories from our agents.
-          </p>
+    <section class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
 
+      <!-- Section Header -->
+      <div class="mb-10 text-center">
+        <h2
+          class="text-3xl font-bold tracking-tight sm:text-4xl"
+        >
+          News & Activity
+        </h2>
+
+        <p
+          class="mx-auto mt-3 max-w-2xl text-sm leading-7 text-slate-600 dark:text-slate-400 sm:text-base"
+        >
+          Travel guides, policy updates, and stories from our agents.
+        </p>
+      </div>
 
       <!-- Articles Grid -->
-      <div class="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+      <div
+        class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3"
+      >
         <article
           v-for="article in articles"
           :key="article.title"
-          class="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
+          class="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl dark:border-slate-800 dark:bg-slate-900"
         >
-          
+
           <!-- Image -->
-          <div class="relative h-64 overflow-hidden">
+          <div class="relative h-56 overflow-hidden sm:h-64">
             <img
               :src="article.image"
               :alt="article.title"
@@ -33,13 +40,13 @@
 
             <!-- Overlay -->
             <div
-              class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"
+              class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"
             ></div>
 
             <!-- Category -->
             <div class="absolute left-4 top-4">
               <span
-                class="rounded-full bg-white/90 px-4 py-1 text-xs font-semibold text-sky-700 backdrop-blur"
+                class="rounded-full bg-white/90 px-4 py-1 text-xs font-semibold text-sky-700 backdrop-blur dark:bg-slate-800/90 dark:text-sky-400"
               >
                 {{ article.category }}
               </span>
@@ -47,29 +54,33 @@
           </div>
 
           <!-- Content -->
-          <div class="p-6">
-            
+          <div class="p-5 sm:p-6">
+
             <!-- Date -->
-            <div class="flex items-center gap-2 text-sm text-slate-500">
+            <div
+              class="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400"
+            >
               <Calendar class="h-4 w-4" />
               <span>{{ article.date }}</span>
             </div>
 
             <!-- Title -->
             <h3
-              class="mt-4 text-2xl font-bold leading-snug text-slate-900 transition-colors group-hover:text-sky-700"
+              class="mt-4 text-xl font-bold leading-snug transition-colors group-hover:text-sky-600 dark:group-hover:text-sky-400 sm:text-2xl"
             >
               {{ article.title }}
             </h3>
 
             <!-- Excerpt -->
-            <p class="mt-4 text-sm leading-7 text-slate-600">
+            <p
+              class="mt-4 text-sm leading-7 text-slate-600 dark:text-slate-400"
+            >
               {{ article.excerpt }}
             </p>
 
             <!-- Button -->
             <button
-              class="mt-6 inline-flex items-center gap-2 font-medium text-sky-600 transition-all hover:gap-3 hover:text-sky-700"
+              class="mt-6 inline-flex items-center gap-2 font-medium text-sky-600 transition-all hover:gap-3 hover:text-sky-700 dark:text-sky-400 dark:hover:text-sky-300"
             >
               Read More
               <span>→</span>
@@ -78,7 +89,6 @@
         </article>
       </div>
     </section>
-
   </div>
 </template>
 
