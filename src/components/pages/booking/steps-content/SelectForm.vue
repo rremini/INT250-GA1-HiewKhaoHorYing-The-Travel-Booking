@@ -1,7 +1,4 @@
 <script setup></script>
-
 <template>
-  <RouterView />
+  <div class="flex w-full p-4.5"></div>
 </template>
-
-<style scoped></style>
