@@ -1,31 +1,37 @@
 <template>
-  <button :type="type" :class="buttonClasses" :disabled="disabled">
+  <button
+    :type="type"
+    :class="buttonClasses"
+    :disabled="disabled"
+    v-bind="$attrs"
+  >
     <slot />
   </button>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed } from "vue";
 
-const props = defineProps({
-  variant: {
-    type: String,
-    default: "primary",
-  },
-  type: {
-    type: String,
-    default: "button",
-  },
-  disabled: {
-    type: Boolean,
-    default: false,
-  },
+type ButtonVariant = "primary" | "secondary" | "danger" | "outline";
+
+type ButtonType = "button" | "submit" | "reset";
+
+interface Props {
+  variant?: ButtonVariant;
+  type?: ButtonType;
+  disabled?: boolean;
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  variant: "primary",
+  type: "button",
+  disabled: false,
 });
 
 const baseClasses =
   "px-4 py-2 rounded-lg cursor-pointer transition font-medium";
 
-const variants = {
+const variants: Record<ButtonVariant, string> = {
   primary: "bg-primary text-sm text-white hover:opacity-90",
 
   secondary: "bg-gray-200 text-black hover:bg-gray-300",

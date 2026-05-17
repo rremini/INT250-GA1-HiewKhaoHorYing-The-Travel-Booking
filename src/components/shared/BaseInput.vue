@@ -3,7 +3,7 @@
     :type="type"
     :placeholder="placeholder"
     :class="[
-      'flex flex-1 text-sm py-2 px-3 bg-[#F3F3F5] outline-0 h-8 rounded-lg',
+      'flex w-full text-sm py-2 px-3 h-9 bg-[#F3F3F5] outline-0 rounded-lg',
       inputClass,
     ]"
     :value="modelValue"
