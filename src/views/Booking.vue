@@ -3,6 +3,7 @@ import Stepper, { StepItem } from "@/components/pages/booking/Stepper.vue";
 import PaymentForm from "@/components/pages/booking/steps-content/PaymentForm.vue";
 import RequestForm from "@/components/pages/booking/steps-content/RequestForm.vue";
 import SelectForm from "@/components/pages/booking/steps-content/SelectForm.vue";
+import ConfirmForm from "@/components/pages/booking/steps-content/ConfirmForm.vue";
 
 const stepItems: StepItem[] = [
   {
@@ -44,6 +45,7 @@ const stepItems: StepItem[] = [
       <RequestForm />
       <SelectForm />
       <PaymentForm />
+      <ConfirmForm />
     </div>
   </div>
 </template>
