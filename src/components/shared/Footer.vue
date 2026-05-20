@@ -1,7 +1,6 @@
 <script setup>
 import LogoWhite from '@/assets/Skyline-White.svg';
 
-
 const props = defineProps({
     logoSrc: {
         type: String,
