@@ -1,7 +1,5 @@
 <script setup>
 import { Calendar } from "lucide-vue-next";
-import Navbar from "../shared/Navbar.vue"
-import Footer from "../shared/Footer.vue"
 const articles = [
   {
     title: "Top 10 Spring destinations for 2026",
@@ -60,23 +58,20 @@ const articles = [
 ];
 </script>
 
-
 <template>
-   <Navbar />
   <div class="min-h-screen bg-slate-50">
- 
     <!-- News Section -->
     <section class="mx-auto max-w-7xl px-4 py-16">
-      
       <!-- Section Header -->
-          <h2 class="flex items-center justify-center text-3xl font-bold text-slate-900 mb-3">
-            News & Activity
-          </h2>
-          <p class="flex items-center justify-center mb-7 text-slate-600">
-            Travel guides, policy updates, and stories from our agents.
-          </p>
- 
- 
+      <h2
+        class="flex items-center justify-center text-3xl font-bold text-slate-900 mb-3"
+      >
+        News & Activity
+      </h2>
+      <p class="flex items-center justify-center mb-7 text-slate-600">
+        Travel guides, policy updates, and stories from our agents.
+      </p>
+
       <!-- Articles Grid -->
       <div class="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
         <article
@@ -84,7 +79,6 @@ const articles = [
           :key="article.title"
           class="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
         >
-          
           <!-- Image -->
           <div class="relative h-64 overflow-hidden">
             <img
@@ -92,12 +86,12 @@ const articles = [
               :alt="article.title"
               class="h-full w-full object-cover transition duration-700 group-hover:scale-110"
             />
- 
+
             <!-- Overlay -->
             <div
               class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"
             ></div>
- 
+
             <!-- Category -->
             <div class="absolute left-4 top-4">
               <span
@@ -107,28 +101,27 @@ const articles = [
               </span>
             </div>
           </div>
- 
+
           <!-- Content -->
           <div class="p-6">
-            
             <!-- Date -->
             <div class="flex items-center gap-2 text-sm text-slate-500">
               <Calendar class="h-4 w-4" />
               <span>{{ article.date }}</span>
             </div>
- 
+
             <!-- Title -->
             <h3
               class="mt-4 text-2xl font-bold leading-snug text-slate-900 transition-colors group-hover:text-sky-700"
             >
               {{ article.title }}
             </h3>
- 
+
             <!-- Excerpt -->
             <p class="mt-4 text-sm leading-7 text-slate-600">
               {{ article.excerpt }}
             </p>
- 
+
             <!-- Button -->
             <button
               class="mt-6 inline-flex items-center gap-2 font-medium text-sky-600 transition-all hover:gap-3 hover:text-sky-700"
@@ -140,7 +133,5 @@ const articles = [
         </article>
       </div>
     </section>
- <Footer />
   </div>
-
 </template>

@@ -1,11 +1,7 @@
 <script setup>
-import { ref } from "vue";
-import Navbar from "../shared/Navbar.vue";
-import Footer from "../shared/Footer.vue";
 import background from "@/assets/็homepages/cloud_homepage.png";
 </script>
 <template>
-  <Navbar />
   <section
     class="relative w-full min-h-screen bg-[#e8ecf1] overflow-hidden flex flex-col justify-start items-center pt-20 md:pt-28"
   >
@@ -70,7 +66,6 @@ import background from "@/assets/็homepages/cloud_homepage.png";
       class="absolute bottom-0 left-0 w-full h-32 md:h-48 bg-linear-to-t from-white via-white/80 to-transparent z-20 pointer-events-none"
     ></div>
   </section>
-  <Footer />
 </template>
 
 <style scoped>
