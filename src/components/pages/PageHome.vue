@@ -96,11 +96,12 @@ const stats = [
         packages the best options, and handles the booking and payment for you.
       </p>
 
-      <button
+      <router-link
+         to="/booking"
         class="bg-white text-slate-900 font-semibold text-sm md:text-base px-8 py-3.5 md:py-4 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.15)] hover:-translate-y-1 transition-all duration-300"
       >
         Get Ticket Now
-      </button>
+      </router-link>
     </div>
 
     <button
