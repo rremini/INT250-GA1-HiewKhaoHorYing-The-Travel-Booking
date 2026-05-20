@@ -2,31 +2,38 @@ import { createRouter, createWebHistory } from "vue-router";
 import About from "../components/pages/About.vue";
 import Booking from "@/views/Booking.vue";
 import { createRouter, createWebHistory } from "vue-router";
+import News from "@/components/pages/news.vue";
+import Contact from "@/components/pages/contact.vue";
+import PageHome from "@/components/pages/PageHome.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
 
   routes: [
-    { path: "/booking", component: Booking },
     {
       path: "/",
       name: "Home",
-      component: () => import("../components/pages/PageHome.vue"),
+      component: PageHome,
+    },
+    {
+      path: "/booking",
+      name: "Booking",
+      component: Booking,
     },
     {
       path: "/contact",
       name: "Contact",
-      component: () => import("../components/pages/contact.vue"),
+      component: Contact,
     },
     {
       path: "/news",
       name: "News",
-      component: () => import("../components/pages/news.vue"),
+      component: News,
     },
     {
       path: "/about",
       name: "About",
-      component: () => import("../components/pages/about.vue"),
+      component: About,
     },
   ],
 });
